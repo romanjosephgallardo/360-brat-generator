@@ -115,6 +115,11 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 10px;
 }
 
+.bg-left, .text-right {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
 /* For 3 inputs options layout */
 .all-options {
     flex-direction: row;

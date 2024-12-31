@@ -97,3 +97,27 @@ window.addEventListener('load', () => {
 
 // Handle window resize
 window.addEventListener('resize', setupPixelationEffect);
+
+
+// For the color pickers
+// Get span elements
+const bgLeftSpan = document.querySelector('.bg-left');
+const textRightSpan = document.querySelector('.text-right');
+
+// Add hover events for bg-left span
+bgLeftSpan.addEventListener('mouseover', () => {
+    document.getElementById('bg-color').style.transform = 'translateY(-5px)';
+});
+
+bgLeftSpan.addEventListener('mouseout', () => {
+    document.getElementById('bg-color').style.transform = 'translateY(0)';
+});
+
+// Add hover events for text-right span
+textRightSpan.addEventListener('mouseover', () => {
+    document.getElementById('text-color').style.transform = 'translateY(-5px)';
+});
+
+textRightSpan.addEventListener('mouseout', () => {
+    document.getElementById('text-color').style.transform = 'translateY(0)';
+});
