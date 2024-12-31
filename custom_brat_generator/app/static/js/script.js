@@ -5,6 +5,9 @@ const preview = document.getElementById('preview');
 const body = document.body;
 const canvas = document.createElement('canvas');
 const ctx = canvas.getContext('2d');
+const instructions = document.querySelector('.instructions');
+const footer = document.querySelector('.footer');
+const footerLinks = document.querySelectorAll('.footer a');
 
 // Set up pixelation effect
 function setupPixelationEffect() {
@@ -16,6 +19,29 @@ function setupPixelationEffect() {
     ctx.scale(scale, scale);
 }
 
+// Function to check brightness
+function isColorDark(color) {
+    const hex = color.replace('#', '');
+    const r = parseInt(hex.substr(0, 2), 16);
+    const g = parseInt(hex.substr(2, 2), 16);
+    const b = parseInt(hex.substr(4, 2), 16);
+    const brightness = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+    return brightness < 128;
+}
+
+// Update text color globally
+function updateTextColors(color) {
+    preview.style.color = color;
+    if (!isColorDark(bgColor.value)) {
+        textInput.style.color = color;
+        instructions.style.color = color;
+        footer.style.color = color;
+        footerLinks.forEach(link => link.style.color = color);
+    }
+    textInput.style.borderColor = color;
+}
+
+
 // Update text
 textInput.addEventListener('input', (e) => {
     const text = e.target.value || '360 brat generator';
@@ -25,24 +51,47 @@ textInput.addEventListener('input', (e) => {
 
 // Update background color
 bgColor.addEventListener('input', (e) => {
-    body.style.backgroundColor = e.target.value;
-    preview.style.backgroundColor = e.target.value;
+    const color = e.target.value;
+    const colorInputs = document.querySelectorAll('input[type="color"]');
+    body.style.backgroundColor = color;
+    preview.style.backgroundColor = color;
+    
+    if (isColorDark(color)) {
+        instructions.style.color = '#ffffff';
+        textInput.style.color = '#ffffff'; 
+        textInput.style.backgroundColor = '#000000';
+        textInput.style.borderColor = '#ffffff';
+        colorInputs.forEach(input => input.style.border = '2px solid #ffffff');
+        footer.style.color = '#ffffff';
+        footerLinks.forEach(link => link.style.color = '#ffffff');
+    } else {
+        updateTextColors(textColor.value);
+        textInput.style.backgroundColor = '#ffffff';
+        colorInputs.forEach(input => input.style.border = '2px solid #000000');
+    }
 });
+
 
 // Update text color
 textColor.addEventListener('input', (e) => {
-    preview.style.color = e.target.value;
-    textInput.style.color = e.target.value;
-    textInput.style.borderColor = e.target.value;
+    const color = e.target.value;
+    updateTextColors(color);
 });
+
 
 // Initialize defaults
 window.addEventListener('load', () => {
     preview.textContent = textInput.value || '360 brat generator';
     body.style.backgroundColor = bgColor.value;
-    preview.style.color = textColor.value;
-    textInput.style.borderColor = textColor.value;
-    textInput.style.color = textColor.value;
+    updateTextColors(textColor.value);
+    
+    if (isColorDark(bgColor.value)) {
+        instructions.style.color = '#ffffff';
+        textInput.style.color = textColor.value;
+        footer.style.color = '#ffffff';
+        footerLinks.forEach(link => link.style.color = '#ffffff');
+    }
+    
     setupPixelationEffect();
 });
 
