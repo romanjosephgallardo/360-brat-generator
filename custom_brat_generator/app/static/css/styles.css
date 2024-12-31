@@ -204,7 +204,8 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .footer-text p{
-    padding-bottom:5px
+    padding-bottom: 5px;
+    padding-top: 10px;
 }
 
 /* For the media queries */
