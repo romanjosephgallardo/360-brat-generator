@@ -1,0 +1,11 @@
+# Environments
+.venv
+venv
+.flaskenv
+venv/
+__pycache__/
+*.pyc
+.env
+.pytest_cache/
+*.db
+.DS_Store
