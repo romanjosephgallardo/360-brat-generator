@@ -141,8 +141,13 @@ input[type="color"]::-webkit-color-swatch {
     text-align: center;
     padding: 20px;
     filter: blur(2px);
+    word-break: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    max-width: 100%;
+    line-height: 1.2;
+    
 }
-
 @media (max-width: 600px) {
     .preview-container {
         width: 300px;
