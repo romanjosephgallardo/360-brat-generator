@@ -6,6 +6,35 @@
     <title>BRAT Generator</title>
 </head>
 <body>
-    <h1>Welcome to the custom brat generator</h1>
+    <!-- Main Section -->
+    <main>
+        <div class="main-container">
+            <!-- Controls for color selection and text input -->
+            <div class="controls">
+                <!-- Color Input -->
+                <div class="color-controls">
+                    <div class="color-input-group">
+                        <input type="color" id="bg-color" value="#8ACE00">
+                    </div>
+                    <div class="color-input-group">
+                        <input type="color" id="text-color" value="#000000">
+                    </div>
+                </div>
+
+                <!-- Text Input -->
+                <input type="text" id="text-input" placeholder="Type something here..." maxlength="100">
+
+                <!-- Instructions -->
+                <div class="instructions">
+                    Pick background color (up) and text color (down)
+                </div>
+            </div>
+
+            <!-- Preview Section -->
+            <div class="preview-text" id="preview">
+                Type anything
+            </div>
+        </div>
+    </main>
 </body>
 </html>
