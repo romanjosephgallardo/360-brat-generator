@@ -47,6 +47,7 @@ body {
 /* For the text input */
 .text-input-group {
     flex: 1;
+    width: 390px;
 }
 
 input[type="text"] {
@@ -77,8 +78,9 @@ input[type="text"]::placeholder {
 }
 
 /* For the color input */
-.color-controls {
+.all-options-controls {
     display: flex;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -113,13 +115,14 @@ input[type="color"]::-webkit-color-swatch {
     width: 100%;
 }
 
-/* For the instructions */
+/* For the instruction text*/
 .instructions {
     text-align: center;
-    opacity: 0.3;
     font-size: 14px;
-    margin-top: 0;
-    font-weight: bold;
+    margin-top: -2px;
+    text-transform: capitalize;
+    font-weight: 500;
+    opacity: 0.7;
 }
 
 /* For the preview text */
