@@ -22,6 +22,7 @@ body {
     transition: background-color 0.3s ease;
     background: #8ACE00;
     margin: 0;
+    font-size: 18px;
 }
 
 
@@ -169,6 +170,33 @@ input[type="color"]::-webkit-color-swatch {
     height: 100%;
     pointer-events: none;
     transform: scaleX(0.9);
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    color: #000000;
+}
+
+.footer a {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    color: #00000049;
+    transition: color 0.7s ease;
+}
+
+.copyright {
+    padding-top: 0;
+    padding-bottom: 10px;
+}
+
+.footer-text p{
+    padding-bottom:5px
 }
 
 /* For the media queries */
