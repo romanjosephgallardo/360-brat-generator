@@ -20,17 +20,17 @@ body {
     align-items: center;
     padding: 20px;
     transition: background-color 0.3s ease;
-    background: #8ACE00
+    background: #8ACE00;
+    margin: 0;
 }
+
 
 /* For the main container */
 .main-container {
     width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    gap: 100px;
-    padding: 2rem;
+    background: transparent;
+    padding: 15px;
+    margin-top: auto;
 }
 
 /* For the div controls */
@@ -58,12 +58,12 @@ input[type="text"] {
     padding-left: 5px;
     padding-right: 5px;
     
-    font-size: 15px;
-    border: 1px solid #d1d1d1;
+    font-size: 18px;
+    border: 2px solid #ffffff;
     border-radius: 16px;
     background: #ffffff;
     color: inherit;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-family: TimesRegular, Times, serif;
     outline: none;
     text-align: center;
     height: 45px;
@@ -79,16 +79,16 @@ input[type="text"]::placeholder {
 /* For the color input */
 .color-controls {
     display: flex;
-    gap: 1rem;
+    gap: 10px;
 }
 
 .color-input-group {
-    flex: 1;
+    width: 45px;
 }
 
 input[type="color"] {
-    width: 100%;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border: 2px solid #000;
     border-radius: 15px;
     background: transparent;
@@ -104,6 +104,15 @@ input[type="color"]::-webkit-color-swatch {
     border-radius: 10px;
 }
 
+/* For 3 inputs options layout */
+.all-options {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
 /* For the instructions */
 .instructions {
     text-align: center;
@@ -114,22 +123,31 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* For the preview text */
+.preview-container {
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
 
 .preview-text {
-    font-size: 6vw;
-    font-weight: 400;
-    font-family: 'Arial Narrow', Arial, sans-serif;
+    font-size: 60px;
     text-align: center;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    word-break: break-word;
-    transition: color 0.3s ease;
-    min-height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 20px;
     filter: blur(2px);
-    -webkit-filter: blur(2px);
+}
+
+@media (max-width: 600px) {
+    .preview-container {
+        width: 300px;
+        height: 300px;
+    }
+    .preview-text {
+        font-size: 40px;
+    }
 }
 
 @media (max-width: 768px) {

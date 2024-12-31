@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Arial+Narrow&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Times+New+Roman&display=swap" rel="stylesheet">
+
     <!-- Link to CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
@@ -12,31 +18,36 @@
 <body>
     <!-- Main Section -->
     <main>
+        <!-- Main Container -->
         <div class="main-container">
             <!-- Controls for color selection and text input -->
             <div class="controls">
-                <!-- Color Input -->
-                <div class="color-controls">
-                    <div class="color-input-group">
-                        <input type="color" id="bg-color" value="#8ACE00">
+
+                <div class="all-options">
+                    <!-- Color Input -->
+                    <div class="color-controls">
+                        <div class="color-input-group">
+                            <input type="color" id="bg-color" value="#8ACE00">
+                        </div>
+                        <div class="color-input-group">
+                            <input type="color" id="text-color" value="#000000">
+                        </div>
                     </div>
-                    <div class="color-input-group">
-                        <input type="color" id="text-color" value="#000000">
+        
+                    <!-- Text Input -->
+                    <div class="text-input-group">
+                        <input type="text" id="text-input" placeholder="360 brat generator" maxlength="30">
                     </div>
                 </div>
-
-                <!-- Text Input -->
-                <div class="text-input-group">
-                    <input type="text" id="text-input" placeholder="360 brat generator" maxlength="100">
-                </div>
-
+    
                 <!-- Instructions -->
                 <div class="instructions">
-                    Pick background color (left) and text color (right)
+                    Pick background color (left) and text color (right). | Take a Screenshot to Save!
                 </div>
-            </div> 
+            </div>
         </div>
-
+    
+        <!-- Preview Container -->
         <div class="preview-container">
             <!-- Preview Section -->
             <div class="preview-text" id="preview">
