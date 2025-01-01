@@ -59,15 +59,11 @@ main{
     width: 390px;
 }
 
-input[type="text"] {
+#text-input {
     width: 100%;
-    
-    /*Padding*/
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
-    
+    resize: none;
+    height: 45px;
+    padding: 10px;
     font-size: 18px;
     border: 2px solid #ffffff;
     border-radius: 16px;
@@ -76,11 +72,24 @@ input[type="text"] {
     font-family: TimesRegular, Times, serif;
     outline: none;
     text-align: center;
-    height: 45px;
+    line-height: 1.4;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    
+    /* Hide scrollbar for Firefox */
+    scrollbar-width: none;
+    
+    /* Hide scrollbar for Chrome/Safari/Edge */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Hide scrollbar for IE */
+    -ms-overflow-style: none;
 }
 
-
-input[type="text"]::placeholder {
+#text-input::placeholder {
     color: inherit;
     opacity: 0.5;
     text-align: center;

@@ -121,3 +121,23 @@ textRightSpan.addEventListener('mouseover', () => {
 textRightSpan.addEventListener('mouseout', () => {
     document.getElementById('text-color').style.transform = 'translateY(0)';
 });
+
+// Add line break on Enter key press
+document.getElementById('text-input').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        const lines = this.value.split('\n');
+        if (lines.length >= 6) {
+            e.preventDefault();
+            return;
+        }
+        
+        e.preventDefault();
+        const cursorPos = this.selectionStart;
+        const currentText = this.value;
+        
+        if (currentText.length < 140) {
+            this.value = currentText.slice(0, cursorPos) + '\n' + currentText.slice(cursorPos);
+            this.selectionStart = this.selectionEnd = cursorPos + 1;
+        }
+    }
+});
