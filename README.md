@@ -1,6 +1,6 @@
 # 360 BRAT Generator
 
-![360 BRAT Generator Preview](...static/images/360_brat_generator_photo.png)
+![360 BRAT Generator Preview](custom_brat_generator/app/static/images/360_brat_generator_photo.png)
 
 Inspired by Charli xcx’s [bratgenerator.com](https://www.bratgenerator.com/), **360 brat generator** features an
 improved layout with dynamic features, allowing users 
@@ -10,9 +10,9 @@ aspects *(colors)* and of course, Charli's iconic intro for BRAT album 360.
 
 ## Features
 - Customizable background and text colors using RGB, HSL, and Hex Code.
-- Multi-line text support (up to 6 lines)
-- Responsive design
-- Improved iconic brat font.
+- Multi-line text support (up to 6 lines).
+- Responsive design.
+- Improved BRAT font (90% stretched text and blurred visual).
 
 ## Purpose
 Personally, I built this project to familiarize and strengthen the fundamentals of HTML, CSS, and JavaScript. On the other hand, the idea was to make customizing BRAT fonts easier without using image editors such as Photoshop or PicsArt. This helped me practice clean, interactive design and improve my web development skills.  I’m looking for ways to enhance the app and grow further as programmer.
