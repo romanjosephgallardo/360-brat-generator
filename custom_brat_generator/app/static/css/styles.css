@@ -167,7 +167,7 @@ input[type="color"]::-webkit-color-swatch {
     overflow-wrap: break-word;
     max-width: 100%;
     max-height: 100%;
-    line-height: 1.2;
+    line-height: 1;
     letter-spacing: -1px;
     transition: color 0.3s ease;
     filter: blur(1.5px);
