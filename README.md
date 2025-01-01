@@ -17,6 +17,20 @@ aspects *(colors)* and of course, Charli's iconic intro for BRAT album 360.
 ## Purpose
 Personally, I built this project to familiarize and strengthen the fundamentals of HTML, CSS, and JavaScript. On the other hand, the idea was to make customizing BRAT fonts easier without using image editors such as Photoshop or PicsArt. This helped me practice clean, interactive design and improve my web development skills.  I’m looking for ways to enhance the app and grow further as programmer.
 
+Example usage:
+<br>
+E=MC2 *(Studio Album by Mariah Carey)*            |  E=MC2 in BRAT style
+:-------------------------:|:-------------------------:
+<img src="custom_brat_generator/app/static/images/EMC2_Artwork.jpg" width="400" alt="E=MC2"/>  |  <img src="custom_brat_generator/app/static/images/EMC2.png" width="400" alt="E=MC2 in BRAT style"/>
+
+
+---
+## Disclaimer 🔴
+This is a fan-made project and is not affiliated with, endorsed, or sponsored by Charli xcx 
+or her team. This project was created for educational purposes and out of appreciation
+for the artist's work. The original BRAT concept and design belong to Charli xcx. Visit the original BRAT generator [here](https://www.bratgenerator.com/).
+
+
 ## Requirements
 - Python 3.8 or higher
 - Flask
