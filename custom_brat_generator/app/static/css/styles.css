@@ -141,38 +141,41 @@ input[type="color"]::-webkit-color-swatch {
 /* For the preview text */
 .preview-container {
     width: 500px;
-    height: 500px;
+    aspect-ratio: 1/1;
     margin: 20px auto;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .preview-text {
-    font-size: 80px;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: min(80px, calc(500px / 8));  /* Approx 8-10 chars per line */
     font-weight: 400;
     text-align: center;
     font-family: 'Arial Narrow', Arial, sans-serif;
-    padding: 20px;
-    filter: blur(2px);
+    padding: 40px;
     word-break: break-word;
     white-space: pre-wrap;
     overflow-wrap: break-word;
     max-width: 100%;
+    max-height: 100%;
     line-height: 1.2;
     letter-spacing: -1px;
     transition: color 0.3s ease;
-
     filter: blur(1.5px);
     -webkit-filter: blur(1.5px);
     image-rendering: pixelated;
     -webkit-font-smoothing: none;
-    transform: scaleX(0.9); 
+    transform: scaleX(0.9);
     text-shadow: 0.5px 0.5px 0 rgba(0,0,0,0.3);
-    width: 100%;
-    display: inline-block;
-    
 }
 
 #pixelCanvas {
