@@ -125,19 +125,32 @@ textRightSpan.addEventListener('mouseout', () => {
 // Add line break on Enter key press
 document.getElementById('text-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-        const lines = this.value.split('\n');
+        e.preventDefault();
+        
+        const cursorPos = this.selectionStart;
+        const currentText = this.value;
+        const lines = currentText.split('\n');
+        
+        // Check number of lines
         if (lines.length >= 6) {
-            e.preventDefault();
             return;
         }
         
-        e.preventDefault();
-        const cursorPos = this.selectionStart;
-        const currentText = this.value;
-        
-        if (currentText.length < 140) {
-            this.value = currentText.slice(0, cursorPos) + '\n' + currentText.slice(cursorPos);
-            this.selectionStart = this.selectionEnd = cursorPos + 1;
+        // Check total length including new line character
+        if (currentText.length >= 140) {
+            return;
         }
+        
+        // Insert new line at cursor position
+        const before = currentText.substring(0, cursorPos);
+        const after = currentText.substring(cursorPos);
+        
+        this.value = before + '\n' + after;
+        
+        // Move cursor after the line break
+        this.selectionStart = this.selectionEnd = cursorPos + 1;
+        
+        // Trigger input event for any listeners
+        this.dispatchEvent(new Event('input'));
     }
 });
