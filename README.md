@@ -20,7 +20,7 @@ This project helped me practice clean, interactive design and improve my web dev
 
 Example usage:
 <br>
-E=MC2 *(Studio Album by Mariah Carey)*            |  E=MC2 in BRAT style
+E=MC² *(Studio Album by Mariah Carey)*            |  E=MC² in BRAT style
 :-------------------------:|:-------------------------:
 <img src="custom_brat_generator/app/static/images/EMC2_Artwork.jpg" width="400" alt="E=MC2"/>  |  <img src="custom_brat_generator/app/static/images/EMC2.png" width="400" alt="E=MC2 in BRAT style"/>
 
