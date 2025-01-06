@@ -43,6 +43,7 @@ The code in this repository is for:
 - Personal use
 
 ## Requirements
+- Code Editor/IDE
 - Python 3.8 or higher
 - Flask
 - Web browser (Chrome recommended)
@@ -65,11 +66,6 @@ The code in this repository is for:
     .\venv\Scripts\activate
     ```
 
-4. Install dependencies:
-    ```bash
-    pip install -r requirements.txt
-    ```
-
 ### Running the Application
 1. Ensure you're in the custom_brat_generator directory with venv activated:
     ```bash
@@ -89,8 +85,8 @@ The code in this repository is for:
    ```
 
 ### Note
-- Virtual environment (venv) must be created inside custom_brat_generator folder
-- Always activate venv before running the application
-- Keep requirements.txt in the same directory as run.py
+- Virtual environment (`venv`) must be created inside `custom_brat_generator` folder.
+- Always activate `venv` before running the application.
+- Keep `requirements.txt` in the same directory as `run.py`.
 
 ---
