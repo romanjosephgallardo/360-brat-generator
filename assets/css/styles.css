@@ -1,3 +1,7 @@
+:root {
+    --main-font: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
+}
+
 @font-face {
     font-family: 'Arial Narrow';
     src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
@@ -23,7 +27,12 @@ body {
     background: #8ACE00;
     margin: 0;
     font-size: 18px;
+    font-family: var(--main-font);
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
+
 
 main{
     display: flex;
@@ -221,31 +230,74 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 /* For the media queries */
-@media (max-width: 768px) {
+/* Large devices (desktop) */
+@media (min-width: 1200px) {
     .preview-container {
-        width: 400px;
-        height: 400px;
+        width: 600px;
+        height: 600px;
     }
     .preview-text {
-        font-size: 50px;
+        font-size: 6.5rem;
+    }
+    .text-input-group {
+        width: 300px;
+    }
+    .preview-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 1199px)  {
+    .preview-container {
+        width: 500px;
+        height: 500px;
+    }
+    .preview-text {
+        font-size: 6.5rem;
     }
     .text-input-group {
         width: 250px;
     }
+    .preview-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
 }
 
-@media (max-width: 480px) {
+/* Small devices (large phones) */
+@media (max-width: 600px) {
     .preview-container {
-        width: 300px;
-        height: 300px;
-        margin: 10px auto;
+        width: 350px;
+        height: 350px;
+        margin: 15px auto;
     }
     .preview-text {
-        font-size: 40px;
-        padding: 10px;
+        padding: 15px;
+        font-size: 3.5rem;
     }
     .text-input-group {
         width: 200px;
+    }
+    .color-input-group {
+        width: 45px;
+    }
+    input[type="color"] {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Extra small devices (small phones) */
+@media (max-width: 479px) {
+    .preview-container {
+        width: 280px;
+        height: 280px;
+        margin: 10px auto;
+    }
+    .text-input-group {
+        width: 180px;
     }
     .color-input-group {
         width: 40px;
@@ -254,17 +306,11 @@ input[type="color"]::-webkit-color-swatch {
         width: 40px;
         height: 40px;
     }
-}
-
-@media (max-width: 320px) {
-    .preview-container {
-        width: 250px;
-        height: 250px;
+    .preview-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
     }
     .preview-text {
-        font-size: 30px;
-    }
-    .text-input-group {
-        width: 150px;
+        font-size: 4.5rem;
     }
 }
