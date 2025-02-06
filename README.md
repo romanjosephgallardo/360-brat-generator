@@ -1,6 +1,6 @@
 # 360 BRAT Generator
 
-![360 BRAT Generator Preview](custom_brat_generator/app/static/images/360_brat_generator_photo.png)
+![360 BRAT Generator Preview](assets/images/360_brat_generator_photo.png)
 
 Inspired by Charli xcx’s [bratgenerator.com](https://www.bratgenerator.com/), **360 brat generator** features an
 improved layout with dynamic features, allowing users 
@@ -22,7 +22,7 @@ Example usage:
 <br>
 E=MC² *(Studio Album by Mariah Carey)*            |  E=MC² in BRAT style
 :-------------------------:|:-------------------------:
-<img src="custom_brat_generator/app/static/images/EMC2_Artwork.jpg" width="400" alt="E=MC2"/>  |  <img src="custom_brat_generator/app/static/images/EMC2.png" width="400" alt="E=MC2 in BRAT style"/>
+<img src="assets/images/EMC2_Artwork.jpg" width="400" alt="E=MC2"/>  |  <img src="assets/images/EMC2.png" width="400" alt="E=MC2 in BRAT style"/>
 
 
 ---
@@ -44,9 +44,8 @@ The code in this repository is for:
 
 ## Requirements
 - Code Editor/IDE
-- Python 3.8 or higher
-- Flask
 - Web browser (Chrome recommended)
+- Live Server Extension
 
 ## Installation
 1. Clone the repository:
@@ -55,38 +54,20 @@ The code in this repository is for:
     cd 360-brat-generator
     ```
 
-2. Navigate to custom_brat_generator
-    ```bash
-    cd custom_brat_generator
-    ```
+2. Open the project in your code editor.
 
-3. Create and activate virtual environment:
-    ```bash
-    python -m venv venv
-    .\venv\Scripts\activate
-    ```
+### Running the Static Site
+1. Open `index.html` in your code editor.
 
-### Running the Application
-1. Ensure you're in the custom_brat_generator directory with venv activated:
-    ```bash
-    # You should see (venv) in your terminal
-    cd custom_brat_generator
-    .\venv\Scripts\activate
-    ```
-2. Run the Flask application:
-    ```bash
-    python run.py
-    ```
+2. Use the Live Server extension in Visual Studio Code to view the site locally:
+    - Install the Live Server extension if you haven't already.
+    - Right-click on `index.html` and select "Open with Live Server".
+    - Alternatively, click the "Go Live" button at the bottom-right corner of Visual Studio Code.
 
-3. Open your browser and navigate to:
-   ```bash
-   http://localhost:5000
-   # For example: http://127.0.0.1:5000
-   ```
+3. Your default web browser should open a new tab with the URL `http://127.0.0.1:5500` (or similar).
 
 ### Note
-- Virtual environment (`venv`) must be created inside `custom_brat_generator` folder.
-- Always activate `venv` before running the application.
-- Keep `requirements.txt` in the same directory as `run.py`.
+- Ensure all assets (CSS, JavaScript, images) are in the correct directories.
+- Test the site locally before deploying to GitHub Pages.
 
 ---
