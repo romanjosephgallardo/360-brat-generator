@@ -154,3 +154,38 @@ document.getElementById('text-input').addEventListener('keydown', function(e) {
         this.dispatchEvent(new Event('input'));
     }
 });
+
+// Adjust text size based on input length
+function adjustTextSize() {
+    const previewText = document.querySelector('.preview-text');
+    const container = document.querySelector('.preview-container');
+    const text = previewText.textContent;
+    
+    // Get number of lines
+    const lines = text.split('\n');
+    const maxLines = Math.max(lines.length, 1);
+    
+    // Base font size - adjusted for number of lines
+    let fontSize = Math.min(100, container.offsetHeight / (maxLines * 1.2));
+    
+    // Adjust based on text length per line
+    const longestLine = Math.max(...lines.map(line => line.length));
+    if (longestLine > 15) {
+        fontSize = Math.min(fontSize, Math.max(40, 100 - (longestLine * 1.2)));
+    }
+    
+    previewText.style.fontSize = `${fontSize}px`;
+    
+    // Fine-tune if text still overflows
+    while (
+        (previewText.scrollHeight > container.offsetHeight ||
+         previewText.scrollWidth > container.offsetWidth) &&
+        fontSize > 20
+    ) {
+        fontSize -= 2;
+        previewText.style.fontSize = `${fontSize}px`;
+    }
+}
+
+// Add event listener to your text input
+document.getElementById('text-input').addEventListener('input', adjustTextSize);
