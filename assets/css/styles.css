@@ -1,11 +1,10 @@
 :root {
-    --main-font: 'Arial Narrow', Arial;
+    --main-font: Arial, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, sans-serif;
 }
 
 @font-face {
     font-family: 'Arial Narrow';
-    src: url('../fonts/Arial Narrow.woff') format('woff'),
-         url('../fonts/Arial Narrow.ttf') format('truetype');
+    src: url('https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.28/webfontloader.js');
     font-style: normal;
     font-weight: normal;
 }
@@ -274,7 +273,7 @@ input[type="color"]::-webkit-color-swatch {
         margin: 15px auto;
     }
     .preview-text {
-        padding: 15px;
+        padding: 0;
         font-size: 4.5rem;
     }
     .text-input-group {
@@ -318,6 +317,7 @@ input[type="color"]::-webkit-color-swatch {
         margin-bottom: 200px;
     }
     .preview-text {
+        padding: 0px;
         font-size: 4.5rem;
     }
 }

@@ -165,18 +165,34 @@ function adjustTextSize() {
     const lines = text.split('\n');
     const maxLines = Math.max(lines.length, 1);
     
-    // Base font size - adjusted for number of lines
-    let fontSize = Math.min(100, container.offsetHeight / (maxLines * 1.2));
+    // Get container dimensions
+    const containerWidth = container.offsetWidth;
+    
+    // Base font size calculation based on container size
+    let baseFontSize;
+    if (containerWidth >= 600) { // Desktop
+        baseFontSize = 100;
+    } else if (containerWidth >= 500) { // Tablet
+        baseFontSize = 80;
+    } else if (containerWidth >= 350) { // Large Phone
+        baseFontSize = 70;
+    } else { // Small Phone
+        baseFontSize = 65;
+    }
+    
+    // Adjust for number of lines
+    let fontSize = Math.min(baseFontSize, container.offsetHeight / (maxLines * 1.2));
     
     // Adjust based on text length per line
     const longestLine = Math.max(...lines.map(line => line.length));
     if (longestLine > 15) {
-        fontSize = Math.min(fontSize, Math.max(40, 100 - (longestLine * 1.2)));
+        fontSize = Math.min(fontSize, Math.max(30, baseFontSize - (longestLine * 1.2)));
     }
     
+    // Apply font size
     previewText.style.fontSize = `${fontSize}px`;
     
-    // Fine-tune if text still overflows
+    // Fine-tune if still overflowing
     while (
         (previewText.scrollHeight > container.offsetHeight ||
          previewText.scrollWidth > container.offsetWidth) &&
