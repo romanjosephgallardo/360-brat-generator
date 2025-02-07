@@ -68,6 +68,7 @@ The code in this repository is for:
 
 ### Note
 - Ensure all assets (CSS, JavaScript, images) are in the correct directories.
-- Test the site locally before deploying to GitHub Pages.
-
+- Test the site locally to ensure everything works as expected.
+- Clear your browser cache if you encounter issues with loading fonts or other assets.
+- If you encounter any issues, check the browser console for error messages and troubleshoot accordingly.
 ---
