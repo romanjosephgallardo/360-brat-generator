@@ -345,26 +345,63 @@ body.dark-bg .align-btn.active {
     .preview-container {
         width: 350px;
         height: 350px;
-        margin: 15px auto;
+        margin: 200px auto;
     }
+
     .preview-text {
         padding: 0;
         font-size: 4.5rem;
     }
+
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .all-options-controls {
+        display: flex;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: center;
+        order: 1;
+        width: 100%;
+    }
+
     .text-input-group {
-        width: 200px;
+        width: 100%;
+        order: 2;
+        display: flex;
+        justify-content: center;
     }
+
     .color-input-group {
-        width: 45px;
+        width: 40px;
     }
-    input[type="color"] {
+
+    .alignment-controls {
+        display: flex;
+        gap: 5px;
+        order: 3;
+        justify-content: center;
+    }
+
+    .align-btn {
         width: 45px;
         height: 45px;
+        font-size: 16px;
     }
-    .preview-container{
-        margin-top: 200px;
-        margin-bottom: 200px;
+
+    input[type="color"],
+    .pickr .pcr-button,
+    .color-picker {
+        width: 40px !important;
+        height: 40px !important;
     }
+
     .footer {
         margin-top: 100px;
     }
@@ -375,92 +412,74 @@ body.dark-bg .align-btn.active {
     .preview-container {
         width: 280px;
         height: 280px;
-        margin: 10px auto;
+        margin: 200px auto;
     }
-    .text-input-group {
-        width: 180px;
-    }
-    .color-input-group {
-        width: 40px;
-    }
-    input[type="color"] {
-        width: 40px;
-        height: 40px;
-    }
-    .preview-container{
-        margin-top: 200px;
-        margin-bottom: 200px;
-    }
-    .preview-text {
-        padding: 0px;
-        font-size: 4.5rem;
-    }
-}
 
-@media (max-width: 600px) {
-    .preview-container {
-        width: 350px;
-        height: 350px;
-        margin: 15px auto;
-    }
     .preview-text {
+        font-size: 4.5rem;
         padding: 0;
-        font-size: 4.5rem;
     }
-    .text-input-group {
-        width: 200px;
-    }
-    .color-input-group {
-        width: 45px;
-    }
-    /* Update color pickers for mobile */
-    input[type="color"], .pickr .pcr-button, .color-picker {
-        width: 40px;
-        height: 40px;
-    }
-    .align-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
-    .preview-container{
-        margin-top: 200px;
-        margin-bottom: 200px;
-    }
-    .footer {
-        margin-top: 100px;
-    }
-}
 
-/* Extra small devices (small phones) */
-@media (max-width: 479px) {
-    .preview-container {
-        width: 280px;
-        height: 280px;
-        margin: 10px auto;
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
     }
+
+    .all-options-controls {
+        gap: 4px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 250px;
+        order: 1;
+        margin: 0 auto;
+    }
+
     .text-input-group {
-        width: 180px;
+        width: 100%;
+        order: 2;
+        display: flex;
+        justify-content: center;
     }
+
     .color-input-group {
         width: 35px;
     }
-    /* Update color pickers for small mobile */
-    input[type="color"], .pickr .pcr-button, .color-picker {
-        width: 35px;
-        height: 35px;
+
+    .alignment-controls {
+        gap: 5px;
+        order: 3;
+        justify-content: center;
+        display: flex;
     }
+
     .align-btn {
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
     }
-    .preview-container{
-        margin-top: 200px;
-        margin-bottom: 200px;
+
+    input[type="color"],
+    .pickr .pcr-button,
+    .color-picker {
+        width: 35px !important;
+        height: 35px !important;
     }
-    .preview-text {
-        padding: 0px;
-        font-size: 4.5rem;
+
+    .pickr .pcr-button {
+        margin: 3px !important;
+        padding: 5px !important;
+        min-width: 35px !important;
+        min-height: 35px !important;
+        border: 2px solid #000 !important;
+        border-radius: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    #text-input {
+        transform: translateX(10px) translateY(-2px);
     }
 }
