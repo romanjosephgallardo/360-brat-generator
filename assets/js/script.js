@@ -79,16 +79,16 @@ function updateTextColors(color) {
 function updateAlignmentButtonsTheme(isDark) {
     const alignButtons = document.querySelectorAll('.align-btn');
     alignButtons.forEach(btn => {
+        // Only update border color, let CSS handle the rest
+        if (isDark) {
+            btn.style.borderColor = '#ffffff';
+        } else {
+            btn.style.borderColor = '#000000';
+        }
+        // Remove inline background and color styles to let CSS take over
         if (!btn.classList.contains('active')) {
-            if (isDark) {
-                btn.style.borderColor = '#ffffff';
-                btn.style.background = '#000000';
-                btn.style.color = '#ffffff';
-            } else {
-                btn.style.borderColor = '#000000';
-                btn.style.background = '#ffffff';
-                btn.style.color = '#000000';
-            }
+            btn.style.background = '';
+            btn.style.color = '';
         }
     });
 }
@@ -256,13 +256,22 @@ window.addEventListener('load', () => {
     }
     
     setupPixelationEffect();
+    
+    // Add click handlers for instruction text
+    const bgLeftSpan = document.querySelector('.bg-left');
+    const textRightSpan = document.querySelector('.text-right');
+    
+    if (bgLeftSpan) {
+        bgLeftSpan.style.cursor = 'pointer';
+        bgLeftSpan.addEventListener('click', () => {
+            bgColorPicker.show();
+        });
+    }
+    
+    if (textRightSpan) {
+        textRightSpan.style.cursor = 'pointer';
+        textRightSpan.addEventListener('click', () => {
+            textColorPicker.show();
+        });
+    }
 });
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    adjustTextSize();
-    setupPixelationEffect();
-});
-
-// Add event listener to adjust text size on input
-textInput.addEventListener('input', adjustTextSize);

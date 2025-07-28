@@ -192,16 +192,11 @@ body.dark-bg .pickr .pcr-button {
     color: #000;
     font-size: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     font-family: var(--main-font);
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.align-btn:hover {
-    transform: translateY(-2px);
-    background: #f0f0f0;
 }
 
 .align-btn.active {
