@@ -1,6 +1,4 @@
 const textInput = document.getElementById('text-input');
-const bgColor = document.getElementById('bg-color');
-const textColor = document.getElementById('text-color');
 const preview = document.getElementById('preview');
 const body = document.body;
 const canvas = document.createElement('canvas');
@@ -8,6 +6,47 @@ const ctx = canvas.getContext('2d');
 const instructions = document.querySelector('.instructions');
 const footer = document.querySelector('.footer');
 const footerLinks = document.querySelectorAll('.footer a');
+
+// Initialize Pickr color pickers
+const bgColorPicker = Pickr.create({
+    el: '#bg-color-picker',
+    theme: 'classic',
+    default: '#8ACE00',
+    swatches: [
+        '#8ACE00', '#029cd7', '#ffffff', '#918885', '#c89fda', '#d20000',
+        '#f2abca', '#6f0353',
+    ],
+    components: {
+        preview: true,
+        opacity: false,
+        hue: true,
+        interaction: {
+            hex: true,
+            input: true,
+            save: true
+        }
+    }
+});
+
+const textColorPicker = Pickr.create({
+    el: '#text-color-picker',
+    theme: 'classic',
+    default: '#000000',
+    swatches: [
+        '#000000', '#f10404', '#bfbfbf', '#000100', '#020000', '#fb0303',
+        '#ffffff', '#fefcfb',
+    ],
+    components: {
+        preview: true,
+        opacity: false,
+        hue: true,
+        interaction: {
+            hex: true,
+            input: true,
+            save: true
+        }
+    }
+});
 
 // Set up pixelation effect
 function setupPixelationEffect() {
@@ -32,98 +71,91 @@ function isColorDark(color) {
 // Update text color globally
 function updateTextColors(color) {
     preview.style.color = color;
-    if (!isColorDark(bgColor.value)) {
-        textInput.style.color = color;
-        instructions.style.color = color;
-        footer.style.color = color;
-        footerLinks.forEach(link => link.style.color = color);
-    }
+    textInput.style.color = color;
     textInput.style.borderColor = color;
 }
 
+// Update alignment button styling for dark/light themes
+function updateAlignmentButtonsTheme(isDark) {
+    const alignButtons = document.querySelectorAll('.align-btn');
+    alignButtons.forEach(btn => {
+        if (!btn.classList.contains('active')) {
+            if (isDark) {
+                btn.style.borderColor = '#ffffff';
+                btn.style.background = '#000000';
+                btn.style.color = '#ffffff';
+            } else {
+                btn.style.borderColor = '#000000';
+                btn.style.background = '#ffffff';
+                btn.style.color = '#000000';
+            }
+        }
+    });
+}
+
+// Handle background color changes
+bgColorPicker.on('change', (color) => {
+    const hexColor = color.toHEXA().toString();
+    body.style.backgroundColor = hexColor;
+    preview.style.backgroundColor = hexColor;
+    
+    if (isColorDark(hexColor)) {
+        body.classList.add('dark-bg');
+        instructions.style.color = '#ffffff';
+        textInput.style.backgroundColor = '#000000';
+        textInput.style.borderColor = '#ffffff';
+        footer.style.color = '#ffffff';
+        footerLinks.forEach(link => link.style.color = '#ffffff');
+        updateAlignmentButtonsTheme(true);
+    } else {
+        body.classList.remove('dark-bg');
+        textInput.style.backgroundColor = '#ffffff';
+        textInput.style.borderColor = '#000000';
+        instructions.style.color = '#000000';
+        footer.style.color = '#000000';
+        footerLinks.forEach(link => link.style.color = '#000000');
+        updateAlignmentButtonsTheme(false);
+        updateTextColors(textColorPicker.getColor().toHEXA().toString());
+    }
+});
+
+// Handle text color changes
+textColorPicker.on('change', (color) => {
+    const hexColor = color.toHEXA().toString();
+    updateTextColors(hexColor);
+});
+
+// Add alignment functionality
+const alignButtons = document.querySelectorAll('.align-btn');
+let currentAlignment = 'center';
+
+// Handle alignment button clicks
+alignButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        alignButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Get alignment value
+        currentAlignment = btn.dataset.align;
+        
+        // Apply alignment to preview
+        preview.style.textAlign = currentAlignment;
+    });
+});
 
 // Update text
 textInput.addEventListener('input', (e) => {
     const text = e.target.value || '360 brat generator';
     preview.textContent = text;
+    adjustTextSize();
     setupPixelationEffect();
-});
-
-// Update background color
-bgColor.addEventListener('input', (e) => {
-    const color = e.target.value;
-    const colorInputs = document.querySelectorAll('input[type="color"]');
-    body.style.backgroundColor = color;
-    preview.style.backgroundColor = color;
-    
-    if (isColorDark(color)) {
-        instructions.style.color = '#ffffff';
-        textInput.style.color = '#ffffff'; 
-        textInput.style.backgroundColor = '#000000';
-        textInput.style.borderColor = '#ffffff';
-        colorInputs.forEach(input => input.style.border = '2px solid #ffffff');
-        footer.style.color = '#ffffff';
-        footerLinks.forEach(link => link.style.color = '#ffffff');
-    } else {
-        updateTextColors(textColor.value);
-        textInput.style.backgroundColor = '#ffffff';
-        colorInputs.forEach(input => input.style.border = '2px solid #000000');
-    }
-});
-
-
-// Update text color
-textColor.addEventListener('input', (e) => {
-    const color = e.target.value;
-    updateTextColors(color);
-});
-
-
-// Initialize defaults
-window.addEventListener('load', () => {
-    preview.textContent = textInput.value || '360 brat generator';
-    body.style.backgroundColor = bgColor.value;
-    updateTextColors(textColor.value);
-    
-    if (isColorDark(bgColor.value)) {
-        instructions.style.color = '#ffffff';
-        textInput.style.color = textColor.value;
-        footer.style.color = '#ffffff';
-        footerLinks.forEach(link => link.style.color = '#ffffff');
-    }
-    
-    setupPixelationEffect();
-});
-
-// Handle window resize
-window.addEventListener('resize', setupPixelationEffect);
-
-
-// For the color pickers
-// Get span elements
-const bgLeftSpan = document.querySelector('.bg-left');
-const textRightSpan = document.querySelector('.text-right');
-
-// Add hover events for bg-left span
-bgLeftSpan.addEventListener('mouseover', () => {
-    document.getElementById('bg-color').style.transform = 'translateY(-5px)';
-});
-
-bgLeftSpan.addEventListener('mouseout', () => {
-    document.getElementById('bg-color').style.transform = 'translateY(0)';
-});
-
-// Add hover events for text-right span
-textRightSpan.addEventListener('mouseover', () => {
-    document.getElementById('text-color').style.transform = 'translateY(-5px)';
-});
-
-textRightSpan.addEventListener('mouseout', () => {
-    document.getElementById('text-color').style.transform = 'translateY(0)';
 });
 
 // Add line break on Enter key press
-document.getElementById('text-input').addEventListener('keydown', function(e) {
+textInput.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
         
@@ -203,69 +235,34 @@ function adjustTextSize() {
     }
 }
 
-// Add event listener to your text input
-document.getElementById('text-input').addEventListener('input', adjustTextSize);
-
-
-// Add alignment functionality
-const alignButtons = document.querySelectorAll('.align-btn');
-let currentAlignment = 'center';
-
-// Handle alignment button clicks
-alignButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        // Remove active class from all buttons
-        alignButtons.forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        btn.classList.add('active');
-        
-        // Get alignment value
-        currentAlignment = btn.dataset.align;
-        
-        // Apply alignment to preview
-        preview.style.textAlign = currentAlignment;
-    });
-});
-
-// Update background color function to handle button styling
-bgColor.addEventListener('input', (e) => {
-    const color = e.target.value;
-    const colorInputs = document.querySelectorAll('input[type="color"]');
-    body.style.backgroundColor = color;
-    preview.style.backgroundColor = color;
-    
-    if (isColorDark(color)) {
-        body.classList.add('dark-bg');
-        instructions.style.color = '#ffffff';
-        textInput.style.color = '#ffffff'; 
-        textInput.style.backgroundColor = '#000000';
-        textInput.style.borderColor = '#ffffff';
-        colorInputs.forEach(input => input.style.border = '2px solid #ffffff');
-        footer.style.color = '#ffffff';
-        footerLinks.forEach(link => link.style.color = '#ffffff');
-    } else {
-        body.classList.remove('dark-bg');
-        updateTextColors(textColor.value);
-        textInput.style.backgroundColor = '#ffffff';
-        colorInputs.forEach(input => input.style.border = '2px solid #000000');
-    }
-});
-
-// Initialize defaults (update existing function)
+// Initialize defaults
 window.addEventListener('load', () => {
     preview.textContent = textInput.value || '360 brat generator';
-    body.style.backgroundColor = bgColor.value;
-    updateTextColors(textColor.value);
-    preview.style.textAlign = currentAlignment; // Add this line
+    body.style.backgroundColor = '#8ACE00';
+    preview.style.backgroundColor = '#8ACE00';
+    updateTextColors('#000000');
+    preview.style.textAlign = currentAlignment;
+    adjustTextSize();
     
-    if (isColorDark(bgColor.value)) {
+    if (isColorDark('#8ACE00')) {
         body.classList.add('dark-bg');
         instructions.style.color = '#ffffff';
-        textInput.style.color = textColor.value;
+        textInput.style.color = '#000000';
         footer.style.color = '#ffffff';
         footerLinks.forEach(link => link.style.color = '#ffffff');
+        updateAlignmentButtonsTheme(true);
+    } else {
+        updateAlignmentButtonsTheme(false);
     }
     
     setupPixelationEffect();
 });
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    adjustTextSize();
+    setupPixelationEffect();
+});
+
+// Add event listener to adjust text size on input
+textInput.addEventListener('input', adjustTextSize);

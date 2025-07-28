@@ -116,27 +116,47 @@ main{
     width: 45px;
 }
 
-input[type="color"] {
+/* for Pickr color pickers */
+.color-picker {
     width: 45px;
     height: 45px;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+input[type="color"], .pickr .pcr-button {
+    width: 45px !important;
+    height: 45px !important;
     border: 2px solid #000;
     border-radius: 15px;
     background: transparent;
 }
 
-input[type="color"]::-webkit-color-swatch-wrapper {
-    padding: 0;
-    border-radius: 10px;
+/* Pickr specific styling */
+.pickr .pcr-button {
+    border: 2px solid #000 !important;
+    border-radius: 15px !important; /* Change from 15px to 50% for perfect circle */
+    width: 45px !important;
+    height: 45px !important;
+    min-width: 45px !important;
+    min-height: 45px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
 }
 
-input[type="color"]::-webkit-color-swatch {
-    border: none;
-    border-radius: 10px;
+.pickr .pcr-button:before {
+    border-radius: 50% !important; /* Make the color swatch circular too */
+    width: calc(100% - 4px) !important;
+    height: calc(100% - 4px) !important;
+    margin: 2px !important;
 }
 
-.bg-left, .text-right {
-    cursor: pointer;
-    transition: transform 0.3s ease;
+
+/* Dark theme for color pickers */
+body.dark-bg .color-picker,
+body.dark-bg .pickr .pcr-button {
+    border-color: #ffffff !important;
 }
 
 /* For 3 inputs options layout */
@@ -156,8 +176,6 @@ input[type="color"]::-webkit-color-swatch {
     font-weight: 500;
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
-
-/* ...existing code... */
 
 /* Text alignment controls */
 .alignment-controls {
@@ -385,19 +403,69 @@ body.dark-bg .align-btn.active {
 }
 
 @media (max-width: 600px) {
-    /* ...existing code... */
+    .preview-container {
+        width: 350px;
+        height: 350px;
+        margin: 15px auto;
+    }
+    .preview-text {
+        padding: 0;
+        font-size: 4.5rem;
+    }
+    .text-input-group {
+        width: 200px;
+    }
+    .color-input-group {
+        width: 45px;
+    }
+    /* Update color pickers for mobile */
+    input[type="color"], .pickr .pcr-button, .color-picker {
+        width: 40px;
+        height: 40px;
+    }
     .align-btn {
         width: 40px;
         height: 40px;
         font-size: 14px;
     }
+    .preview-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+    .footer {
+        margin-top: 100px;
+    }
 }
 
+/* Extra small devices (small phones) */
 @media (max-width: 479px) {
-    /* ...existing code... */
+    .preview-container {
+        width: 280px;
+        height: 280px;
+        margin: 10px auto;
+    }
+    .text-input-group {
+        width: 180px;
+    }
+    .color-input-group {
+        width: 35px;
+    }
+    /* Update color pickers for small mobile */
+    input[type="color"], .pickr .pcr-button, .color-picker {
+        width: 35px;
+        height: 35px;
+    }
     .align-btn {
         width: 35px;
         height: 35px;
         font-size: 12px;
+    }
+    .preview-container{
+        margin-top: 200px;
+        margin-bottom: 200px;
+    }
+    .preview-text {
+        padding: 0px;
+        font-size: 4.5rem;
     }
 }

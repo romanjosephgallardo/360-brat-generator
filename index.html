@@ -6,10 +6,13 @@
 
     <!-- Link to CSS -->
     <link rel="stylesheet" href="assets/css/styles.css">
+    
+    <!-- Vanilla Color Picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
 
     <!-- Favicon -->
     <link rel="icon" href="assets/images/360_favicon.png">
@@ -27,13 +30,12 @@
 
                 <div class="all-options">
                     <!-- Color Input -->
-                    <!-- Color Input -->
                     <div class="all-options-controls">
                         <div class="color-input-group">
-                            <input type="color" id="bg-color" value="#8ACE00">
+                            <div class="color-picker" id="bg-color-picker"></div>
                         </div>
                         <div class="color-input-group">
-                            <input type="color" id="text-color" value="#000000">
+                            <div class="color-picker" id="text-color-picker"></div>
                         </div>
 
                         <!-- Text Alignment Buttons -->
