@@ -8,6 +8,10 @@ to customize background and text colors. '360'
 represents its ability to customize the generator at all
 aspects *(colors)* and of course, Charli's iconic intro for BRAT album 360.
 
+## 🌐 Live Demo
+**Try it now:** [https://romanjosephgallardo.github.io/360-brat-generator/](https://romanjosephgallardo.github.io/360-brat-generator/)
+
+
 ## Features
 - Customizable background and text colors using RGB, HSL, and Hex Code.
 - Multi-line text support (up to 6 lines).
@@ -15,8 +19,10 @@ aspects *(colors)* and of course, Charli's iconic intro for BRAT album 360.
 - Improved BRAT font (90% stretched text and blurred visual).
 
 ## Purpose
-Personally, I built this project to familiarize and strengthen the fundamentals of HTML, CSS, and JavaScript. On the other hand, the idea was to make customizing BRAT fonts easier without using image editors such as Photoshop or PicsArt. This project also serves as a portfolio piece to showcase alongside our other work.
-This project helped me practice clean, interactive design and improve my web development skills.  I’m looking for ways to enhance the app and grow further as programmer.
+Personally, I built this project to familiarize and strengthen the fundamentals of HTML, CSS, and JavaScript. 
+
+On the other hand, the idea was to make customizing BRAT fonts easier without using image editors such as Photoshop or PicsArt. This project also serves as a portfolio piece to showcase alongside our other work.
+
 
 Example usage:
 <br>
@@ -27,48 +33,25 @@ E=MC² *(Studio Album by Mariah Carey)*            |  E=MC² in BRAT style
 
 ---
 ## Usage & Distribution
-This project's code is publicly available on GitHub for learning and demonstration purposes only. 
-While others can clone and run locally, it should not be deployed as a public web service 
-out of respect for the original BRAT generator.
+This project is now publicly deployed and available for use at the live demo link above. 
+The code is also publicly available on GitHub for learning and demonstration purposes.
 
 ## Disclaimer 🔴
 This is a fan-made project and is not affiliated with, endorsed, or sponsored by Charli xcx 
 or her team. This project was created for educational purposes and out of appreciation
 for the artist's work. The original BRAT concept and design belong to Charli xcx. Visit the original BRAT generator [here](https://www.bratgenerator.com/).
 
-The code in this repository is for:
-- Learning purposes
-- Local development only
-- GitHub portfolio demonstration
-- Personal use
+---
 
-## Requirements
-- Code Editor/IDE
-- Web browser (Chrome recommended)
-- Live Server Extension
+## 📝 Update Log
 
-## Installation
-1. Clone the repository:
-    ```bash
-    git clone https://github.com/romanjosephgallardo/360-brat-generator.git
-    cd 360-brat-generator
-    ```
+**v1.1.0** - July 28, 2025
+- Added Text Alignment option.
+- Added live demo link
 
-2. Open the project in your code editor.
+**v1.0.0** - Initial Release
+- Basic BRAT generator functionality
+- Color customization features
+- Multi-line text support
 
-### Running the Static Site
-1. Open `index.html` in your code editor.
-
-2. Use the Live Server extension in Visual Studio Code to view the site locally:
-    - Install the Live Server extension if you haven't already.
-    - Right-click on `index.html` and select "Open with Live Server".
-    - Alternatively, click the "Go Live" button at the bottom-right corner of Visual Studio Code.
-
-3. Your default web browser should open a new tab with the URL `http://127.0.0.1:5500` (or similar).
-
-### Note
-- Ensure all assets (CSS, JavaScript, images) are in the correct directories.
-- Test the site locally to ensure everything works as expected.
-- Clear your browser cache if you encounter issues with loading fonts or other assets.
-- If you encounter any issues, check the browser console for error messages and troubleshoot accordingly.
 ---
