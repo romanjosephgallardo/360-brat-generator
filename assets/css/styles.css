@@ -157,6 +157,58 @@ input[type="color"]::-webkit-color-swatch {
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
+/* ...existing code... */
+
+/* Text alignment controls */
+.alignment-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.align-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    background: #ffffff;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--main-font);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.align-btn:hover {
+    transform: translateY(-2px);
+    background: #f0f0f0;
+}
+
+.align-btn.active {
+    background: #000;
+    color: #fff;
+}
+
+/* For dark backgrounds */
+body.dark-bg .align-btn {
+    border-color: #ffffff;
+    background: #000000;
+    color: #ffffff;
+}
+
+body.dark-bg .align-btn:hover {
+    background: #333;
+}
+
+body.dark-bg .align-btn.active {
+    background: #ffffff;
+    color: #000;
+}
+
+
+
 /* For the preview text */
 .preview-container {
     width: 700px;
@@ -329,5 +381,23 @@ input[type="color"]::-webkit-color-swatch {
     .preview-text {
         padding: 0px;
         font-size: 4.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    /* ...existing code... */
+    .align-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 479px) {
+    /* ...existing code... */
+    .align-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
     }
 }

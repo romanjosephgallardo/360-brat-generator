@@ -205,3 +205,67 @@ function adjustTextSize() {
 
 // Add event listener to your text input
 document.getElementById('text-input').addEventListener('input', adjustTextSize);
+
+
+// Add alignment functionality
+const alignButtons = document.querySelectorAll('.align-btn');
+let currentAlignment = 'center';
+
+// Handle alignment button clicks
+alignButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        alignButtons.forEach(b => b.classList.remove('active'));
+        
+        // Add active class to clicked button
+        btn.classList.add('active');
+        
+        // Get alignment value
+        currentAlignment = btn.dataset.align;
+        
+        // Apply alignment to preview
+        preview.style.textAlign = currentAlignment;
+    });
+});
+
+// Update background color function to handle button styling
+bgColor.addEventListener('input', (e) => {
+    const color = e.target.value;
+    const colorInputs = document.querySelectorAll('input[type="color"]');
+    body.style.backgroundColor = color;
+    preview.style.backgroundColor = color;
+    
+    if (isColorDark(color)) {
+        body.classList.add('dark-bg');
+        instructions.style.color = '#ffffff';
+        textInput.style.color = '#ffffff'; 
+        textInput.style.backgroundColor = '#000000';
+        textInput.style.borderColor = '#ffffff';
+        colorInputs.forEach(input => input.style.border = '2px solid #ffffff');
+        footer.style.color = '#ffffff';
+        footerLinks.forEach(link => link.style.color = '#ffffff');
+    } else {
+        body.classList.remove('dark-bg');
+        updateTextColors(textColor.value);
+        textInput.style.backgroundColor = '#ffffff';
+        colorInputs.forEach(input => input.style.border = '2px solid #000000');
+    }
+});
+
+// Initialize defaults (update existing function)
+window.addEventListener('load', () => {
+    preview.textContent = textInput.value || '360 brat generator';
+    body.style.backgroundColor = bgColor.value;
+    updateTextColors(textColor.value);
+    preview.style.textAlign = currentAlignment; // Add this line
+    
+    if (isColorDark(bgColor.value)) {
+        body.classList.add('dark-bg');
+        instructions.style.color = '#ffffff';
+        textInput.style.color = textColor.value;
+        footer.style.color = '#ffffff';
+        footerLinks.forEach(link => link.style.color = '#ffffff');
+    }
+    
+    setupPixelationEffect();
+});
